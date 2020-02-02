@@ -101,12 +101,22 @@ class Index extends Component {
 
   stickHead = () => {
     const { indexStore: { setSticky } } = this.props
+    const tabElm = document.getElementsByClassName('at-tabs__item');
     document.onscroll = function () {
       var distance = document.body.scrollTop || document.documentElement.scrollTop;
       if (distance > 345) {
         setSticky(true)
+
+        for (var i = 0; i < tabElm.length; i++) {
+          tabElm[i].style.display = "none";
+        }
+
       } else {
         setSticky(false)
+
+        for (var i = 0; i < tabElm.length; i++) {
+          tabElm[i].style.display = "block";
+        }
       }
     }
   }
