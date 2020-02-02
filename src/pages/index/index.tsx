@@ -239,16 +239,15 @@ class Index extends Component {
               ref="imap"
               seamless
               width="90%"
-              height="300px"
-              scrolling="auto"
+              height="1500px"
+              scrolling="no"
               src="//map.90hub.com"
-              onLoad={this.onLoadMap}
               className="map"
             />
-            <AtDivider className="divider" />
-            <View className="virus-detail ">
+            {/* <AtDivider className="divider" /> */}
+            {/* <View className="virus-detail ">
               <Area />
-            </View>
+            </View> */}
           </AtTabsPane>
           {/* 防护科普 */}
           <AtTabsPane current={currentTab} index={1}>
