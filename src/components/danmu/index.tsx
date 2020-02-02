@@ -8,7 +8,6 @@ const data = [
     "向一线的勇士致敬",
     "不信谣，不传谣，我为中国加油",
     "一切安好！大家都要好好的",
-    "身体健康，宅在家里做贡献",
 ]
 
 export const Danmu = () => {
@@ -21,7 +20,7 @@ export const Danmu = () => {
     return (
         <View className="danmu-container">
             <View className="danmu-group">
-                {list.map((i, index) => (
+                {data.map((i, index) => (
                     <View className="danmu-item" key={index}>
                         {i}
                     </View>

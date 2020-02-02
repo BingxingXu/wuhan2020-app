@@ -300,7 +300,7 @@ class Index extends Component {
                 newsList.map((i, index) =>
                   <View className="at-row news-item" onClick={() => this.onClickNews(i)}>
                     <View className="news-text">
-                      <Text className="title">{i.title}</Text>
+                      <text className="title">{i.title}</text>
                       <Text className="hint">{i.fromName}</Text>
                     </View>
                     <img

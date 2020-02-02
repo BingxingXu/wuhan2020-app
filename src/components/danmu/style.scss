@@ -7,17 +7,17 @@
     height:  370px;
     position: absolute;
     top: 0;
-    z-index: 199;
+    z-index: 99;
     overflow: hidden;
 }
 
 @keyframes rowup {
     0% {
-        transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 250px, 0);
     }
 
     100% {
-        transform: translate3d(0, -200px, 0);
+        transform: translate3d(0, -350px, 0);
     }
 }
 
@@ -28,8 +28,8 @@
 
 .danmu-item {
     display: flex;
-    margin-right: 20px;
-    margin-bottom: 22px;
+    margin-right: 32px;
+    margin-bottom: 60px;
     padding-left: 16px;
     padding-right: 16px;
     align-items: center;
@@ -42,7 +42,7 @@
     font-weight:400;
     color:rgba(255,255,255,1);
     line-height:24px;
-    animation: 1s rowup cubic-bezier(.53,.01,.68,.79) infinite normal
+    animation: 3s rowup cubic-bezier(.53,.01,.68,.79) infinite normal
 }
 
 
