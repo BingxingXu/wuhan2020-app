@@ -115,7 +115,6 @@ class IndexStore {
   fetchPolularScience = async () => {
     try {
       const res = await request('/sciences');
-      console.log('res', res)
       this.setPolularScience(res as News[]);
     } catch (err) {
       console.log("fetchNews", err)
