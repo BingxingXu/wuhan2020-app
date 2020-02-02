@@ -315,10 +315,13 @@ class Index extends Component {
         {/* 祈福按钮 */}
         <View className='at-row bottom-view'>
           <AtButton type='secondary' circle className="at-col at-col-3" onClick={this.onClickShare}>分享</AtButton>
-          <AtButton type='primary' circle className="at-col at-col-8" onClick={() => {
-            logQifu();
-            openAction();
-          }}>我要祈福</AtButton>
+          <View className="at-col at-col-8 btn-primary">
+            <AtButton type='primary' circle onClick={() => {
+              logQifu();
+              openAction();
+            }}>我要祈福</AtButton>
+            <text className="btn-hint">已有930,010,010人参与了祈福</text>
+          </View>
         </View>
         <AtActionSheet isOpened={isActionOpen} cancelText='取消' title='点击发送吉祥语' onClose={closeAction}>
           {actionList.map((i, index) =>
