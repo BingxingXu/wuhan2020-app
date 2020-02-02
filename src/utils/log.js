@@ -1,5 +1,4 @@
 function track(eventId, labelId) {
-    console.log('start track')
     // 埋点
     PALifeOpen.invoke(
         'device',
@@ -59,3 +58,7 @@ export const logEnter = () => {
     })
 }
 
+export const logContent = (id: string) => {
+    PALifeOpenH5.addRecord("705-20200202-yq", `705-20200202-${id}-yq`)
+    track("705-20200202-yq", `705-20200202-${id}-yq`)
+}

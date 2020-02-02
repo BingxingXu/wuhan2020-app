@@ -11,7 +11,7 @@ import { Barrage } from '../../components/barrage';
 import { Area } from '../../components/table';
 import { Loading } from '../../components/loading';
 import { Danmu } from '../../components/danmu';
-import { logEnter, share } from '../../utils/log';
+import { logEnter, share, logContent } from '../../utils/log';
 import { isWeixin } from '../../utils/common';
 import { CountTotal, News } from '../../store/types.d';
 
@@ -127,7 +127,12 @@ class Index extends Component {
 
   onClickShare = () => {
     share()
-    isWeixin() ? this.props.indexStore.setOpenShare(false) : null;
+    this.props.indexStore.setOpenShare(true)
+  }
+
+  onClickNews = (i: News) => {
+    this.navigate(i.url);
+    logContent(i.sourceId);
   }
 
   render() {
@@ -252,7 +257,7 @@ class Index extends Component {
                 <Loading /> :
                 newsList.map((i, index) =>
                   <AtListItem
-                    onClick={() => this.navigate(i.url)}
+                    onClick={() => this.onClickNews(i)}
                     key={index}
                     title={i.title}
                     note={i.fromName}
