@@ -334,7 +334,6 @@ class Index extends Component {
             </AtActionSheetItem>
           )}
         </AtActionSheet>
-        <AtDivider className="divider" />
         <View className="place-holder" />
         <AtCurtain
           isOpened={openShare}
