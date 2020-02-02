@@ -23,6 +23,7 @@ function track(eventId, labelId) {
 }
 
 export const share = () => {
+    logShare()
     // 唤起 APP 的分享面板
     PALifeOpen.share(
         {
@@ -61,4 +62,29 @@ export const logEnter = () => {
 export const logContent = (id: string) => {
     PALifeOpenH5.addRecord("705-20200202-yq", `705-20200202-${id}-yq`)
     track("705-20200202-yq", `705-20200202-${id}-yq`)
+}
+
+export const logLipei = () => {
+    PALifeOpenH5.addRecord("705-20200202-yq", `705-2020020201-yq`)
+    track("705-20200202-yq", `705-2020020201-yq`)
+}
+
+export const logBaoquan = () => {
+    PALifeOpenH5.addRecord("705-20200202-yq", `705-2020020202-yq`)
+    track("705-20200202-yq", `705-2020020202-yq`)
+}
+
+export const logWenzhen = () => {
+    PALifeOpenH5.addRecord("705-20200202-yq", `705-2020020203-yq`)
+    track("705-20200202-yq", `705-2020020203-yq`)
+}
+
+export const logShare = () => {
+    PALifeOpenH5.addRecord("705-20200202-yq", `705-2020020205-yq`)
+    track("705-20200202-yq", `705-2020020205-yq`)
+}
+
+export const logQifu = () => {
+    PALifeOpenH5.addRecord("705-20200202-yq", `705-2020020206-yq`)
+    track("705-20200202-yq", `705-2020020206-yq`)
 }

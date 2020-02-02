@@ -11,7 +11,7 @@ import { Barrage } from '../../components/barrage';
 import { Area } from '../../components/table';
 import { Loading } from '../../components/loading';
 import { Danmu } from '../../components/danmu';
-import { logEnter, share, logContent } from '../../utils/log';
+import { logEnter, share, logContent, logLipei, logBaoquan, logWenzhen, logQifu } from '../../utils/log';
 import { isWeixin } from '../../utils/common';
 import { CountTotal, News } from '../../store/types.d';
 
@@ -166,17 +166,26 @@ class Index extends Component {
           )}
         </Swiper>
         <View className="banner-btns">
-          <View onClick={() => this.navigate("https://pingan.com/lpba")}>
+          <View onClick={() => {
+            this.navigate("https://pingan.com/lpba")
+            logLipei();
+          }}>
             <Image src="//minx.oss-cn-shanghai.aliyuncs.com/wuhan/icon1.png" />
             <Text>理赔服务</Text>
           </View>
-          <View onClick={() => this.navigate("https://pingan.com/qbfw")}>
+          <View onClick={() => {
+            this.navigate("https://pingan.com/qbfw")
+            logBaoquan();
+          }}>
             <Image src="//minx.oss-cn-shanghai.aliyuncs.com/wuhan/icon2.png" />
             <Text>保全服务</Text>
           </View>
-          <View onClick={() => this.navigate("https://pingan.com/kjbd")}>
+          <View onClick={() => {
+            this.navigate("https://pingan.com/kjbd")
+            logWenzhen();
+          }}>
             <Image src="//minx.oss-cn-shanghai.aliyuncs.com/wuhan/icon3.png" />
-            <Text>健康门诊</Text>
+            <Text>健康问诊</Text>
           </View>
           {/* <View>
             <Image
@@ -278,7 +287,10 @@ class Index extends Component {
         {/* 祈福按钮 */}
         <View className='at-row bottom-view'>
           <AtButton type='secondary' circle className="at-col at-col-3" onClick={this.onClickShare}>分享</AtButton>
-          <AtButton type='primary' circle className="at-col at-col-8" onClick={openAction}>我要祈福</AtButton>
+          <AtButton type='primary' circle className="at-col at-col-8" onClick={() => {
+            logQifu();
+            openAction();
+          }}>我要祈福</AtButton>
         </View>
         <AtActionSheet isOpened={isActionOpen} cancelText='取消' title='点击发送吉祥语' onClose={closeAction}>
           {actionList.map((i, index) =>
