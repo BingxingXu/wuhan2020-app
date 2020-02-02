@@ -22,7 +22,6 @@ type PageStateProps = {
     isActionOpen: boolean,
     banners: string[],
     actionList: [string],
-    newsList: News[],
     polularScience: News[],
     loading3: boolean,
     loading4: boolean,
@@ -143,14 +142,14 @@ class Index extends Component {
 
   onClickNews = (i: News) => {
     this.navigate(i.url);
-    logContent(i.sourceId);
+    logContent(i.id);
   }
 
   render() {
     const { indexStore: { currentTab,
       tabList, setCurrentTab, isActionOpen,
       openAction, closeAction, actionList,
-      newsList, banners, polularScience,
+      banners, polularScience,
       sticky, countTotal,
       openShare, setOpenShare
     } } = this.props
@@ -272,10 +271,10 @@ class Index extends Component {
           {/* 防护科普 */}
           <AtTabsPane current={currentTab} index={2}>
             <AtList>
-              {polularScience.length === 0 ?
+              {polularScience.filter(i => i.type === 1).length === 0 ?
                 <Loading /> :
-                polularScience.map((i, index) =>
-                  <View className="at-row news-item" onClick={() => this.onClickNews(i)}>
+                polularScience.filter(i => i.type === 1).map((i, index) =>
+                  <View key={index} className="at-row news-item" onClick={() => this.onClickNews(i)}>
                     <View className="news-text">
                       <Text className="title">{i.title}</Text>
                       <Text className="hint">{i.fromName}</Text>
@@ -290,15 +289,28 @@ class Index extends Component {
           </AtTabsPane>
           {/* 平安行动 */}
           <AtTabsPane current={currentTab} index={3}>
-            <Loading />
+            {polularScience.filter(i => i.type === 2).length === 0 ?
+              <Loading /> :
+              polularScience.filter(i => i.type === 2).map((i, index) =>
+                <View key={index} className="at-row news-item" onClick={() => this.onClickNews(i)}>
+                  <View className="news-text">
+                    <Text className="title">{i.title}</Text>
+                    <Text className="hint">{i.fromName}</Text>
+                  </View>
+                  <img
+                    className="news-img"
+                    src={i.cover ? i.cover : "//minx.oss-cn-shanghai.aliyuncs.com/wuhan/icon7.png"}
+                  />
+                </View>
+              )}
           </AtTabsPane>
           {/* 信息速递 */}
           <AtTabsPane current={currentTab} index={3}>
             <AtList>
-              {newsList.length === 0 ?
+              {polularScience.filter(i => i.type === 3).length === 0 ?
                 <Loading /> :
-                newsList.map((i, index) =>
-                  <View className="at-row news-item" onClick={() => this.onClickNews(i)}>
+                polularScience.filter(i => i.type === 3).map((i, index) =>
+                  <View key={index} className="at-row news-item" onClick={() => this.onClickNews(i)}>
                     <View className="news-text">
                       <text className="title">{i.title}</text>
                       <Text className="hint">{i.fromName}</Text>

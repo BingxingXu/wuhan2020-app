@@ -15,11 +15,12 @@ export interface CountTotal {
 }
 
 export interface News {
-    sourceId: string;
+    id: string;
     url: string;
     content: string;
     fromName: string;
     title: string;
     sendTime: string;
     cover: string;
+    type: number;
 }

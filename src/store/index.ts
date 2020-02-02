@@ -1,4 +1,4 @@
-import { observable, action } from 'mobx'
+import { observable, action, computed } from 'mobx'
 import { request } from '../utils/request'
 import { Banner, CountTotal, News } from './types.d'
 
