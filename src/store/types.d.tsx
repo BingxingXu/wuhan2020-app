@@ -21,4 +21,5 @@ export interface News {
     fromName: string;
     title: string;
     sendTime: string;
+    cover: string;
 }

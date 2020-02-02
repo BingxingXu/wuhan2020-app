@@ -23,6 +23,7 @@ type PageStateProps = {
     banners: string[],
     actionList: [string],
     newsList: News[],
+    polularScience: News[],
     loading3: boolean,
     loading4: boolean,
     sticky: boolean,
@@ -149,7 +150,7 @@ class Index extends Component {
     const { indexStore: { currentTab,
       tabList, setCurrentTab, isActionOpen,
       openAction, closeAction, actionList,
-      newsList, banners, setLoading3, loading3,
+      newsList, banners, polularScience,
       sticky, countTotal,
       openShare, setOpenShare
     } } = this.props
@@ -269,7 +270,30 @@ class Index extends Component {
             </View> */}
           </AtTabsPane>
           {/* 防护科普 */}
-          <AtTabsPane current={currentTab} index={1}>
+          <AtTabsPane current={currentTab} index={2}>
+            <AtList>
+              {polularScience.length === 0 ?
+                <Loading /> :
+                polularScience.map((i, index) =>
+                  <View className="at-row news-item" onClick={() => this.onClickNews(i)}>
+                    <View className="news-text">
+                      <Text className="title">{i.title}</Text>
+                      <Text className="hint">{i.fromName}</Text>
+                    </View>
+                    <img
+                      className="news-img"
+                      src={i.cover ? i.cover : "//minx.oss-cn-shanghai.aliyuncs.com/wuhan/icon7.png"}
+                    />
+                  </View>
+                )}
+            </AtList>
+          </AtTabsPane>
+          {/* 平安行动 */}
+          <AtTabsPane current={currentTab} index={3}>
+            <Loading />
+          </AtTabsPane>
+          {/* 信息速递 */}
+          <AtTabsPane current={currentTab} index={3}>
             <AtList>
               {newsList.length === 0 ?
                 <Loading /> :
@@ -281,17 +305,11 @@ class Index extends Component {
                     </View>
                     <img
                       className="news-img"
-                      src="//minx.oss-cn-shanghai.aliyuncs.com/wuhan/icon7.png"
+                      src={i.cover ? i.cover : "//minx.oss-cn-shanghai.aliyuncs.com/wuhan/icon7.png"}
                     />
                   </View>
                 )}
             </AtList>
-          </AtTabsPane>
-          <AtTabsPane current={currentTab} index={2}>
-            <Loading />
-          </AtTabsPane>
-          <AtTabsPane current={currentTab} index={3}>
-            <Loading />
           </AtTabsPane>
         </AtTabs>
         {/* 祈福按钮 */}

@@ -10,8 +10,8 @@ class IndexStore {
   @observable tabList = [
     { title: '疫情概览' },
     { title: '防护科普' },
-    { title: '保险理赔' },
-    { title: '平安行动' }
+    { title: '平安行动' },
+    { title: '信息速递' }
   ];
   @observable isActionOpen = false
   @observable actionList = [
@@ -21,6 +21,7 @@ class IndexStore {
     "//minx.oss-cn-shanghai.aliyuncs.com/wuhan/%E5%90%89%E7%A5%A5%E8%AF%AD04.png",
   ];
   @observable newsList: News[] = []
+  @observable polularScience: News[] = []
   @observable loading3 = true
   @observable loading4 = true
   @observable virus = [
@@ -57,6 +58,10 @@ class IndexStore {
 
   @action
   setNewsList = (v: News[]) => { this.newsList = v }
+
+  @action
+  setPolularScience = (v: News[]) => { this.polularScience = v }
+
   @action
   openAction = () => { this.isActionOpen = true }
 
@@ -107,10 +112,21 @@ class IndexStore {
     }
   }
 
+  fetchPolularScience = async () => {
+    try {
+      const res = await request('/sciences');
+      console.log('res', res)
+      this.setPolularScience(res as News[]);
+    } catch (err) {
+      console.log("fetchNews", err)
+    }
+  }
+
   init = async () => {
     await this.fetchBanners();
     await this.fetchCountTotal();
     await this.fetchNews();
+    await this.fetchPolularScience();
   }
 
 }
