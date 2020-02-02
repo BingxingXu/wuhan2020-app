@@ -255,12 +255,16 @@ class Index extends Component {
               {newsList.length === 0 ?
                 <Loading /> :
                 newsList.map((i, index) =>
-                  <AtListItem
-                    onClick={() => this.onClickNews(i)}
-                    key={index}
-                    title={i.title}
-                    note={i.fromName}
-                  />
+                  <View className="at-row news-item" onClick={() => this.onClickNews(i)}>
+                    <View className="news-text">
+                      <Text className="title">{i.title}</Text>
+                      <Text className="hint">{i.fromName}</Text>
+                    </View>
+                    <img
+                      className="news-img"
+                      src="//minx.oss-cn-shanghai.aliyuncs.com/wuhan/icon7.png"
+                    />
+                  </View>
                 )}
             </AtList>
           </AtTabsPane>
