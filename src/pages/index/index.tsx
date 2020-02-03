@@ -122,6 +122,8 @@ class Index extends Component {
   }
 
   navigate = (url: string) => {
+    // window.open(url)
+    // window.location.href = url;
     Taro.navigateTo({
       url
     })
@@ -177,21 +179,24 @@ class Index extends Component {
         </Swiper>
         <View className="banner-btns">
           <View onClick={() => {
-            this.navigate("https://pingan.com/lpba")
+            isWeixin ? this.navigate("https://pingan.com/lpba")
+              : this.navigate("https://m.lifeapp.pingan.com.cn/m/pss/index.html#/claim/index?claimType=newRegisterCase")
             logLipei();
           }}>
             <Image src="//minx.oss-cn-shanghai.aliyuncs.com/wuhan/icon1.png" />
             <Text>理赔服务</Text>
           </View>
           <View onClick={() => {
-            this.navigate("https://pingan.com/qbfw")
+            isWeixin ? this.navigate("https://pingan.com/qbfw")
+              : this.navigate("pars://pars.pingan.com/policy/manager")
             logBaoquan();
           }}>
             <Image src="//minx.oss-cn-shanghai.aliyuncs.com/wuhan/icon2.png" />
             <Text>保全服务</Text>
           </View>
           <View onClick={() => {
-            this.navigate("https://pingan.com/kjbd")
+            isWeixin ? this.navigate("https://pingan.com/kjbd")
+              : this.navigate("pars://pars.pingan.com/health_detail?url=https%3A%2F%2Fwww.jk.cn%2Fshop%2F%3Fapp%3DSHOUXIAN%26outBizType%3DGJK%23%2Fmarket%2F253280")
             logWenzhen();
           }}>
             <Image src="//minx.oss-cn-shanghai.aliyuncs.com/wuhan/icon3.png" />
