@@ -279,7 +279,7 @@ class Index extends Component {
             </View> */}
           </AtTabsPane>
           {/* 防护科普 */}
-          <AtTabsPane current={currentTab} index={2}>
+          <AtTabsPane current={currentTab} index={1}>
             <AtList>
               {polularScience.filter(i => i.type === 1).length === 0 ?
                 <Loading /> :
@@ -298,7 +298,7 @@ class Index extends Component {
             </AtList>
           </AtTabsPane>
           {/* 平安行动 */}
-          <AtTabsPane current={currentTab} index={3}>
+          <AtTabsPane current={currentTab} index={2}>
             {polularScience.filter(i => i.type === 2).length === 0 ?
               <Loading /> :
               polularScience.filter(i => i.type === 2).map((i, index) =>
