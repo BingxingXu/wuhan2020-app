@@ -122,8 +122,8 @@ class Index extends Component {
   }
 
   navigate = (url: string) => {
-    window.open(url)
-    // window.location.href = url;
+    // window.open(url, '_blank')
+    window.location.href = url;
     // Taro.navigateTo({
     // url
     // })
