@@ -76,6 +76,16 @@
     z-index: 200;
 }
 
+.at-tab-bar__title {
+    color: #fff;
+}
+
+.at-tab-bar__item--active {
+    border-bottom: solid #fff;
+    border-bottom-width: 6px;
+    padding-bottom: 1px;
+}
+
 .map-source {
     margin-top: 40px;
     margin-bottom: 24px;

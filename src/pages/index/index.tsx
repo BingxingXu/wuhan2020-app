@@ -102,6 +102,7 @@ class Index extends Component {
   stickHead = () => {
     const { indexStore: { setSticky } } = this.props
     const tabElm = document.getElementsByClassName('at-tabs__item');
+    const activeTab = document.querySelector('div.at-tab-bar__item--active>div>div>div.at-tab-bar__title')
     document.onscroll = function () {
       var distance = document.body.scrollTop || document.documentElement.scrollTop;
       if (distance > 345) {

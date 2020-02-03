@@ -49,6 +49,7 @@
     "mobx": "4.8.0",
     "nerv-devtools": "^1.5.5",
     "nervjs": "^1.5.5",
+    "rc-tabs": "^9.7.0",
     "taro-ui": "^2.2.4",
     "webpack-bundle-analyzer": "^3.6.0"
   },
