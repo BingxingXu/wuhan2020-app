@@ -77,6 +77,7 @@ class Index extends Component {
   componentDidHide() { }
 
   handleClickAction = () => {
+    this.props.indexStore.closeAction();
     Taro.atMessage({
       'message': '发送成功',
       'type': 'success',
