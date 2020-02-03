@@ -138,8 +138,8 @@ class Index extends Component {
   }
 
   onClickShare = () => {
-    share()
-    this.props.indexStore.setOpenShare(true)
+    // share()
+    isWeixin() ? this.props.indexStore.setOpenShare(true) : share()
   }
 
   onClickNews = (i: News) => {
