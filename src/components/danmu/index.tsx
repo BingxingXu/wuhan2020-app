@@ -30,7 +30,7 @@ export const Danmu = () => {
                 }
             }, 2000)
         }
-    }, 2000)
+    }, 1000)
     return (
         <View className="danmu-container">
             <View className="danmu-group" id="danmu-group">
