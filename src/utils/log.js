@@ -27,10 +27,10 @@ export const share = () => {
     // 唤起 APP 的分享面板
     PALifeOpen.share(
         {
-            title: '分享标题',
-            content: '分享内容描述',
+            title: '抗击新冠肺炎  共同守卫平安',
+            content: '汇总疫情动态，助您科学预防。武汉加油！中国平安！',
             extention: 'http://wuhan.90hub.com/', // 分享页面的链接地址
-            imageUrl: 'https://elis-ecocdn.pingan.com.cn/lilith/rsrc/logo.png',
+            imageUrl: 'https://minx.oss-cn-shanghai.aliyuncs.com/wuhan/share-weixin.png',
             shareTypes: 'WXHY|WXPYQ|XLWB|DX' // 分享渠道，以"|"为分隔符。WXHY:微信好友;WXPYQ:微信朋友圈;XLWB:新浪微博;DX:短信。
         },
         function success(rsp) {
