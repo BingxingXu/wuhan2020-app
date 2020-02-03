@@ -30,15 +30,10 @@ export const Danmu = () => {
                 }
             }, 2000)
         }
-    }, 1000)
+    }, 2000)
     return (
         <View className="danmu-container">
             <View className="danmu-group" id="danmu-group">
-                {/* {list.map((i, index) => (
-                    <View className="danmu-item" key={index}>
-                        {i}
-                    </View>
-                ))} */}
             </View>
         </View>
     )
