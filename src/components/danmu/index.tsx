@@ -13,18 +13,32 @@ const data = [
 export const Danmu = () => {
     const [list, setList] = useState(["向一线的勇士致敬"] as string[])
     useInterval(() => {
-        const index = Math.floor(Math.random() * 4);
-        const text = data[index];
-        setList([text]);
-    }, 1500)
+        const random = Math.floor(Math.random() * 3);
+        const text = data[random];
+        const elm = document.createElement('span')
+        const group = document.getElementById("danmu-group")
+
+        elm.className = "danmu-item"
+        elm.innerHTML = text
+        if (group) {
+            group.appendChild(elm)
+            // setTimeout(() => {
+            // }, random * 500)
+            setTimeout(() => {
+                if (group) {
+                    group.removeChild(elm)
+                }
+            }, 2000)
+        }
+    }, 2000)
     return (
         <View className="danmu-container">
-            <View className="danmu-group">
-                {data.map((i, index) => (
+            <View className="danmu-group" id="danmu-group">
+                {/* {list.map((i, index) => (
                     <View className="danmu-item" key={index}>
                         {i}
                     </View>
-                ))}
+                ))} */}
             </View>
         </View>
     )

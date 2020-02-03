@@ -13,17 +13,23 @@
 
 @keyframes rowup {
     0% {
-        transform: translate3d(0, 250px, 0);
+        transform: translate3d(0, 0, 0);
+        opacity: 0;
     }
-
+    25% {
+        opacity: .45;
+    }
+    75% {
+        opacity: .45;
+    }
     100% {
-        transform: translate3d(0, -350px, 0);
+        transform: translate3d(0, -300px, 0);
+        opacity: 0;
     }
 }
 
 .danmu-group {
-    display: flex;
-    flex-direction: column;
+    position: relative;
 }
 
 .danmu-item {
@@ -42,7 +48,6 @@
     font-weight:400;
     color:rgba(255,255,255,1);
     line-height:24px;
-    animation: 3s rowup cubic-bezier(.53,.01,.68,.79) infinite normal
+    animation: rowup 2s cubic-bezier(.45,.46,.63,.9) infinite normal
 }
-
 
