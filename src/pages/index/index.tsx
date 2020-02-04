@@ -209,15 +209,17 @@ class Index extends Component {
             <Image src="//minx.oss-cn-shanghai.aliyuncs.com/wuhan/icon3.png" />
             <Text>健康问诊</Text>
           </View>
-          {/* <View>
+          <View onClick={() => {
+            this.navigate("https://mili-shop.lifeapp.pingan.com.cn/elis_mili_shop_dmz/static/milishop/index.html?p=OWt3Wg&s_sign=1580815829255&s_no=0&s_uid=ed7fc4b776d29cc42c453c4a64ae95c8&pa_share_token=91f334cd12404dc3999c123049f731c1")
+          }}>
             <Image
               style={{
                 marginTop: "16px",
                 marginBottom: "4px"
               }}
               src="//minx.oss-cn-shanghai.aliyuncs.com/wuhan/icon4-1.png" />
-            <Text>医护人员险</Text>
-          </View> */}
+            <Text>E路平安</Text>
+          </View>
         </View>
         <View className="banner-hints">
           <Text>疫情严峻，减少人员聚集，平安人寿为您提供线上自助服务</Text>
