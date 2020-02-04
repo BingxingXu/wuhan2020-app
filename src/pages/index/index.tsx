@@ -346,7 +346,7 @@ class Index extends Component {
               logQifu();
               openAction();
             }}>我要祈福</AtButton>
-            <text className="btn-hint">已有930,010,010人参与了祈福</text>
+            {/* <text className="btn-hint">已有930,010,010人参与了祈福</text> */}
           </View>
         </View>
         <Image
