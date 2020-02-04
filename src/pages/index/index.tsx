@@ -365,6 +365,11 @@ class Index extends Component {
             </AtActionSheetItem>
           )}
         </AtActionSheet>
+        <Image
+          className="fab"
+          src="https://minx.oss-cn-shanghai.aliyuncs.com/wuhan/fab.png"
+          onClick={() => this.navigate("https://b.pingan.com.cn/kuaizhan/page/brop/opt/20200131/h18372.html?campaignid=202001009017&source=Jinguanjia")}
+        />
         <View className="place-holder" />
         <AtCurtain
           isOpened={openShare}
@@ -373,6 +378,7 @@ class Index extends Component {
           <Image
             className="curtain"
             src={"https://minx.oss-cn-shanghai.aliyuncs.com/wuhan/share.png"}
+            onClick={() => this.navigate("https://b.pingan.com.cn/kuaizhan/page/brop/opt/20200131/h18372.html?campaignid=202001009017&source=Jinguanjia")}
           />
         </AtCurtain>
       </View>
