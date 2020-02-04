@@ -30,7 +30,7 @@ export const initWeixin = async () => {
         });
 
         wx.ready(function () {
-            wx.onMenuShareAppMessage({
+            wx.updateAppMessageShareData({
                 title: '抗击新冠肺炎  共同守卫平安', // 分享标题
                 desc: '汇总疫情动态，助您科学预防。武汉加油！中国平安！', // 分享描述
                 link: 'https://wuhan.90hub.com/', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
