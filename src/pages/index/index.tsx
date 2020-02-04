@@ -347,6 +347,10 @@ class Index extends Component {
             <text className="btn-hint">已有930,010,010人参与了祈福</text>
           </View>
         </View>
+        <Image
+          className="fab"
+          src="https://minx.oss-cn-shanghai.aliyuncs.com/wuhan/fab.png"
+        />
         <AtActionSheet isOpened={isActionOpen} cancelText='取消' title='点击发送吉祥语' onClose={closeAction}>
           {actionList.map((i, index) =>
             <AtActionSheetItem
