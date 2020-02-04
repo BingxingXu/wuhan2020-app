@@ -1,3 +1,5 @@
+import { initWeixin } from './weixin'
+
 function track(eventId, labelId) {
     // 埋点
     PALifeOpen.invoke(
@@ -29,7 +31,7 @@ export const share = () => {
         {
             title: '抗击新冠肺炎  共同守卫平安',
             content: '汇总疫情动态，助您科学预防。武汉加油！中国平安！',
-            extention: 'http://wuhan.90hub.com/', // 分享页面的链接地址
+            extention: 'https://wuhan.90hub.com/', // 分享页面的链接地址
             imageUrl: 'https://minx.oss-cn-shanghai.aliyuncs.com/wuhan/share-weixin.png',
             shareTypes: 'WXHY|WXPYQ|XLWB|DX' // 分享渠道，以"|"为分隔符。WXHY:微信好友;WXPYQ:微信朋友圈;XLWB:新浪微博;DX:短信。
         },
@@ -45,6 +47,7 @@ export const share = () => {
 export const logInit = () => {
     PALifeOpen.config({ debug: false, isProd: true })
     PALifeOpenH5.config({ debug: false, isProd: true, autoMergeRecord: true })
+    initWeixin()
 }
 
 export const logEnter = () => {
@@ -87,4 +90,18 @@ export const logShare = () => {
 export const logQifu = () => {
     PALifeOpenH5.addRecord("705-20200202-yq", `705-2020020206-yq`)
     track("705-20200202-yq", `705-2020020206-yq`)
+}
+
+export const initWeixinShare = () => {
+    const res = PALifeOpenH5.createWXShare('https://wuhan.90hub.com/')
+    wx.updateAppMessageShareData({
+        title: '抗击新冠肺炎  共同守卫平安', // 分享标题
+        desc: '汇总疫情动态，助您科学预防。武汉加油！中国平安！', // 分享描述
+        link: 'https://wuhan.90hub.com/', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+        imgUrl: 'https://minx.oss-cn-shanghai.aliyuncs.com/wuhan/share-weixin.png', // 分享图标
+        success: function () {
+            console.log('更新成功')
+            // 设置成功
+        },
+    })
 }
