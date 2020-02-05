@@ -210,7 +210,9 @@ class Index extends Component {
             <Text>健康问诊</Text>
           </View>
           <View onClick={() => {
-            this.navigate("https://mili-shop.lifeapp.pingan.com.cn/elis_mili_shop_dmz/static/milishop/index.html?p=OWt3Wg&s_sign=1580815829255&s_no=0&s_uid=ed7fc4b776d29cc42c453c4a64ae95c8&pa_share_token=91f334cd12404dc3999c123049f731c1")
+            isWeixin()
+              ? this.navigate("https://m.lifeapp.pingan.com.cn/m/shop/index.html#/om/special/product/1024G?extInfo=%7B%22drainage%22%3A%22activityAPP%22%2C%22typeNo%22%3A%22SAT20200205%22%7D")
+              : this.navigate("pars://pars.pingan.com/open_url?url=https%3A%2F%2Fm.lifeapp.pingan.com.cn%2Fm%2Fshop%2Findex.html%23%2Fom%2Fspecial%2Fproduct%2F1024G%3FextInfo%3D%257B%2522drainage%2522%253A%2522activityAPP%2522%252C%2522typeNo%2522%253A%2522SAT20200205%2522%257D&type=jssdk")
           }}>
             <Image
               style={{
@@ -340,7 +342,9 @@ class Index extends Component {
         </AtTabs>
         {/* 祈福按钮 */}
         <View className='at-row bottom-view'>
-          <AtButton type='secondary' circle className="at-col at-col-3" onClick={this.onClickShare}>分享</AtButton>
+          {isWeixin() ? null :
+            <AtButton type='secondary' circle className="at-col at-col-3" onClick={this.onClickShare}>分享</AtButton>
+          }
           <View className="at-col at-col-8 btn-primary">
             <AtButton type='primary' circle onClick={() => {
               logQifu();
@@ -367,11 +371,11 @@ class Index extends Component {
             </AtActionSheetItem>
           )}
         </AtActionSheet>
-        <Image
+        {/* <Image
           className="fab"
           src="https://minx.oss-cn-shanghai.aliyuncs.com/wuhan/fab.png"
           onClick={() => this.navigate("https://b.pingan.com.cn/kuaizhan/page/brop/opt/20200131/h18372.html?campaignid=202001009017&source=Jinguanjia")}
-        />
+        /> */}
         <View className="place-holder" />
         <AtCurtain
           isOpened={openShare}
