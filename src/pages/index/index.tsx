@@ -346,10 +346,13 @@ class Index extends Component {
             <AtButton type='secondary' circle className="at-col at-col-3" onClick={this.onClickShare}>分享</AtButton>
           }
           <View className="at-col at-col-8 btn-primary">
-            <AtButton type='primary' circle onClick={() => {
+            {/* <AtButton type='primary' circle onClick={() => {
               logQifu();
               openAction();
-            }}>我要祈福</AtButton>
+            }}>我要祈福</AtButton> */}
+            <AtButton type='primary' circle onClick={() => {
+              this.navigate("https://life.pais.pingan.com/pneumonia/")
+            }}>我要为中国战疫加油</AtButton>
             {/* <text className="btn-hint">已有930,010,010人参与了祈福</text> */}
           </View>
         </View>
