@@ -342,7 +342,7 @@ class Index extends Component {
         </AtTabs>
         {/* 祈福按钮 */}
         <View className='at-row bottom-view'>
-          {isWeixin() ? null :
+          {isWeixin() ? <View className="at-col at-col-2" /> :
             <AtButton type='secondary' circle className="at-col at-col-3" onClick={this.onClickShare}>分享</AtButton>
           }
           <View className="at-col at-col-8 btn-primary">
