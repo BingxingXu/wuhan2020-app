@@ -5,6 +5,7 @@ import { useInterval } from '../../utils/useInterval'
 import "./style.scss"
 
 const data = [
+    "身体健康,宅在家里做贡献",
     "向一线的勇士致敬",
     "不信谣，不传谣，我为中国加油",
     "一切安好！大家都要好好的",
@@ -13,7 +14,7 @@ const data = [
 export const Danmu = () => {
     const [list, setList] = useState(["向一线的勇士致敬"] as string[])
     useInterval(() => {
-        const random = Math.floor(Math.random() * 3);
+        const random = Math.floor(Math.random() * 4);
         const text = data[random];
         const elm = document.createElement('span')
         const group = document.getElementById("danmu-group")

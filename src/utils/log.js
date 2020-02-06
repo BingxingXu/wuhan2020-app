@@ -43,7 +43,21 @@ export const share = () => {
         }
     )
 }
+export const navigateUrl = (uri) =>{
+  try {
+    var param = {uri}
+    PALifeOpen.executeUri(
+      param,
+      function(rsp) { console.debug("success",data); },
+      function(data) { console.debug("failed", data); }
+    )
+  }
+  catch(err) {
+    console.log(err)
+    window.location.href = uri;
+  }
 
+}
 export const logInit = () => {
     PALifeOpen.config({ debug: false, isProd: true })
     PALifeOpenH5.config({ debug: false, isProd: true, autoMergeRecord: true })
