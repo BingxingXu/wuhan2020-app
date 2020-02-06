@@ -11,7 +11,7 @@ import { Barrage } from '../../components/barrage';
 import { Area } from '../../components/table';
 import { Loading } from '../../components/loading';
 import { Danmu } from '../../components/danmu';
-import { logEnter, share, logContent, logLipei, logBaoquan, logWenzhen, logQifu } from '../../utils/log';
+import { logEnter, share, logContent, logLipei, logBaoquan, logWenzhen, logQifu, navigateUrl } from '../../utils/log';
 import { isWeixin } from '../../utils/common';
 import { CountTotal, News } from '../../store/types.d';
 
@@ -68,6 +68,19 @@ class Index extends Component {
     // this.initBarrage();
     this.stickHead();
     logEnter();
+    var p = document.getElementById('myframe');
+    var onmessage = function(e){
+      console.log(e)
+      var data = e.data;
+      //提取参数
+      p.height = data;;
+    }
+    //监听postMessage消息事件
+    if (typeof window.addEventListener != 'undefined') {
+      window.addEventListener('message', onmessage, false);
+    } else if (typeof window.attachEvent != 'undefined') {
+      window.attachEvent('onmessage', onmessage);
+    }
   }
 
   componentWillUnmount() { }
@@ -129,6 +142,11 @@ class Index extends Component {
     // Taro.navigateTo({
     // url
     // })
+    // if(isWeixin()){
+    //   window.location.href = url;
+    // } else {
+    //   navigateUrl(url)
+    // }
   }
 
   onClickTab = (i: number, e: CommonEvent) => {
@@ -272,6 +290,9 @@ class Index extends Component {
               marginwidth="0"
               marginheight="0"
               ref="imap"
+              id='myframe'
+              name="myframe"
+              allowTransparency="true"
               seamless
               width="90%"
               height="1500px"
