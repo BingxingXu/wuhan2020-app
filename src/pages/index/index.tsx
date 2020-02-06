@@ -73,7 +73,7 @@ class Index extends Component {
       console.log(e)
       var data = e.data;
       //提取参数
-      p.height = data;;
+      p.height = data || '1500px';
     }
     //监听postMessage消息事件
     if (typeof window.addEventListener != 'undefined') {
