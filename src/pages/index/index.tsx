@@ -370,7 +370,7 @@ class Index extends Component {
             <AtButton type='primary' circle onClick={() => {
               logQifu();
               openAction();
-            }}>我要祈福</AtButton>
+            }}>我要为中国战疫加油</AtButton>
             {/* <AtButton type='primary' circle circle onClick={() => {
               logQifu();
               openAction();}}>我要为中国战疫加油</AtButton> */}
