@@ -139,16 +139,20 @@ class Index extends Component {
   navigate = (url: string) => {
     // window.open(url, '_blank')
     // window.location.href = url;
-    Taro.navigateTo({
-    url
-    })
+    // Taro.navigateTo({
+    // url
+    // })
     if(isWeixin()){
       window.location.href = url;
     } else {
       navigateUrl(url)
     }
   }
+  wishClick = () =>{
+    this.setState({
 
+    })
+  }
   onClickTab = (i: number, e: CommonEvent) => {
     var distance = document.body.scrollTop || document.documentElement.scrollTop;
     if (distance > 345) {
@@ -233,12 +237,8 @@ class Index extends Component {
               : this.navigate("pars://pars.pingan.com/open_url?url=https%3A%2F%2Fm.lifeapp.pingan.com.cn%2Fm%2Fshop%2Findex.html%23%2Fom%2Fspecial%2Fproduct%2F1024G%3FextInfo%3D%257B%2522drainage%2522%253A%2522activityAPP%2522%252C%2522typeNo%2522%253A%2522SAT20200205%2522%257D&type=jssdk")
           }}>
             <Image
-              style={{
-                marginTop: "2px",
-                marginBottom: "9px"
-              }}
               src="//minx.oss-cn-shanghai.aliyuncs.com/wuhan/icon4-1.png" />
-            <Text>E路平安</Text>
+            <Text style={{textAlign:'center'}}>E路平安</Text>
           </View>
         </View>
         <View className="banner-hints">
@@ -371,9 +371,9 @@ class Index extends Component {
               logQifu();
               openAction();
             }}>我要祈福</AtButton> */}
-            <AtButton type='primary' circle onClick={() => {
-              this.navigate("https://life.pais.pingan.com/pneumonia/")
-            }}>我要为中国战疫加油</AtButton>
+            <AtButton type='primary' circle circle onClick={() => {
+              logQifu();
+              openAction();}}>我要为中国战疫加油</AtButton>
             {/* <text className="btn-hint">已有930,010,010人参与了祈福</text> */}
           </View>
         </View>
