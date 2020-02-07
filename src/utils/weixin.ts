@@ -27,12 +27,12 @@ export const initWeixin = async () => {
             console.log('err', res)
             // config信息验证失败会执行error函数，如签名过期导致验证失败，具体错误信息可以打开config的debug模式查看，也可以在返回的res参数中查看，对于SPA可以在这里更新签名。
         });
-
+        let currurl = location.href.split('?')[0];
         wx.ready(function () {
             wx.updateAppMessageShareData({
                 title: '抗击新冠肺炎  共同守卫平安', // 分享标题
                 desc: '汇总疫情动态，助您科学预防。武汉加油！中国平安！', // 分享描述
-                link: 'https://wuhan.90hub.com/', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                link: currurl, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
                 imgUrl: 'https://minx.oss-cn-shanghai.aliyuncs.com/wuhan/share-weixin.png', // 分享图标
                 success: function () {
                     console.log('success')
