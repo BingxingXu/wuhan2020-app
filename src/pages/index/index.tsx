@@ -14,6 +14,11 @@ import { Danmu } from '../../components/danmu';
 import { logEnter, share, logContent, logLipei, logBaoquan, logWenzhen, logQifu, navigateUrl } from '../../utils/log';
 import { isWeixin } from '../../utils/common';
 import { CountTotal, News } from '../../store/types.d';
+import lipei from '../../assets/images/lipei.png';
+import baoquan from '../../assets/images/baoquan.png';
+import mianfei from '../../assets/images/mianfei.png';
+import wenzhen from '../../assets/images/wenzhen.png';
+import location from '../../assets/images/loaction.png';
 
 type PageStateProps = {
   indexStore: {
@@ -179,6 +184,7 @@ class Index extends Component {
       sticky, countTotal,
       openShare, setOpenShare
     } } = this.props
+    console.log('tabList', tabList);
     return (
       <View style={{ width: "100%", overflowX: "hidden" }}>
         <AtMessage />
@@ -193,7 +199,7 @@ class Index extends Component {
           {banners.map((i, index) =>
             <SwiperItem key={index}>
               <Image
-                src={'//' + i}
+                src={'//' + i + '?id=1' }
                 mode="aspectFill"
                 lazyLoad
                 className="banner-img"
@@ -208,7 +214,7 @@ class Index extends Component {
               : this.navigate("https://m.lifeapp.pingan.com.cn/m/pss/index.html#/claim/index?claimType=newRegisterCase")
             logLipei();
           }}>
-            <Image src="//minx.oss-cn-shanghai.aliyuncs.com/wuhan/icon1.png" />
+            <Image src={lipei} />
             <Text>理赔服务</Text>
           </View>
           <View onClick={() => {
@@ -218,7 +224,7 @@ class Index extends Component {
               this.navigate("pars://pars.pingan.com/policy/manager")
             logBaoquan();
           }}>
-            <Image src="//minx.oss-cn-shanghai.aliyuncs.com/wuhan/icon2.png" />
+            <Image src={baoquan} />
             <Text>保全服务</Text>
           </View>
           <View onClick={() => {
@@ -228,7 +234,7 @@ class Index extends Component {
               this.navigate("pars://pars.pingan.com/health_detail?url=https%3A%2F%2Fwww.jk.cn%2Fshop%2F%3Fapp%3DSHOUXIAN%26outBizType%3DGJK%23%2Fmarket%2F253280")
             logWenzhen();
           }}>
-            <Image src="//minx.oss-cn-shanghai.aliyuncs.com/wuhan/icon3.png" />
+            <Image src={wenzhen} />
             <Text>健康问诊</Text>
           </View>
           <View className="banner-btns-icon" onClick={() => {
@@ -237,7 +243,7 @@ class Index extends Component {
               : this.navigate("pars://pars.pingan.com/open_url?url=https%3A%2F%2Fm.lifeapp.pingan.com.cn%2Fm%2Fshop%2Findex.html%23%2Fom%2Fspecial%2Fproduct%2F1024G%3FextInfo%3D%257B%2522drainage%2522%253A%2522activityAPP%2522%252C%2522typeNo%2522%253A%2522SAT20200205%2522%257D&type=jssdk")
           }}>
             <Image
-              src="//minx.oss-cn-shanghai.aliyuncs.com/wuhan/icon4-1.png" />
+              src={mianfei} />
             <Text style={{textAlign:'center'}}>E路平安</Text>
           </View>
         </View>
@@ -279,7 +285,7 @@ class Index extends Component {
             </View>
             <AtDivider className="divider" />
             <View className="map-header">
-              <img src="//minx.oss-cn-shanghai.aliyuncs.com/wuhan/icon6.png" />
+              <img src={location} />
               <Text className="title">全国疫情地图</Text>
             </View>
             <iframe
