@@ -301,3 +301,22 @@
 .place-holder {
     height: 280px;
 }
+.button_jiayou {
+  background: #F6303B;
+}
+
+.button_share {
+  border-color: #979797;
+  color: #333333;
+}
+
+.at-tabs__item--active {
+  color: #D83B44;
+}
+.at-tabs__item--active .at-tabs__item-underline {
+  width: 50%;
+  height: 6px;
+  background: #D83B44;
+  left: 50%;
+  transform: translateX(-50%);
+}

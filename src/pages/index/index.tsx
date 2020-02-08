@@ -370,10 +370,10 @@ class Index extends Component {
         {/* 祈福按钮 */}
         <View className='at-row bottom-view'>
           {isWeixin() ? <View className="at-col at-col-2" /> :
-            <AtButton type='secondary' circle className="at-col at-col-3" onClick={this.onClickShare}>分享</AtButton>
+            <AtButton type='secondary' circle className="at-col at-col-3 button_share" onClick={this.onClickShare}>分享</AtButton>
           }
           <View className="at-col at-col-8 btn-primary">
-            <AtButton type='primary' circle onClick={() => {
+            <AtButton className="button_jiayou" type='primary' circle onClick={() => {
               logQifu();
               openAction();
             }}>我要为中国战疫加油</AtButton>
