@@ -199,7 +199,7 @@ class Index extends Component {
           {banners.map((i, index) =>
             <SwiperItem key={index}>
               <Image
-                src={'//' + i + '?id=1' }
+                src={'//' + i + '?id=2' }
                 mode="aspectFill"
                 lazyLoad
                 className="banner-img"
@@ -253,7 +253,7 @@ class Index extends Component {
         {/* 按钮 */}
         {sticky ? <AtTabBar
           className="sticky-header"
-          backgroundColor='#287FFC'
+          backgroundColor='#F6303B'
           color='#fff'
           tabList={tabList}
           onClick={this.onClickTab}
