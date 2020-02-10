@@ -380,7 +380,7 @@ class Index extends Component {
             {/* <AtButton type='primary' circle circle onClick={() => {
               logQifu();
               openAction();}}>我要为中国战疫加油</AtButton> */}
-            {/* <text className="btn-hint">已有930,010,010人参与了祈福</text> */}
+            {/* <text className="btn-hint">930,010,010人参与了祈福</text> */}
           </View>
         </View>
         <AtActionSheet isOpened={isActionOpen} cancelText='取消' title='点击发送吉祥语' onClose={closeAction}>

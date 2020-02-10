@@ -1,4 +1,5 @@
 import { httprequest } from './fetch';
+import { request } from './request';
 
 interface Config {
     appId: string
@@ -12,20 +13,21 @@ export const initWeixin = async () => {
       console.log(location.href)
         let url = location.href.split('#')[0];
         // let url = 'https://wuhan.90hub.com/';
-        const res: Config = await httprequest(`/wx/js-config?url=${url}`);
-        console.log('res', res);
+        const res: Config = await request(`/weixin/config?url=${url}`);
+
+        // const res: Config = await httprequest(`/wx/js-config?url=${url}`);
+
         wx.config({
             debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
-            appId: res.data.appId, // 必填，公众号的唯一标识
-            timestamp: res.data.timestamp, // 必填，生成签名的时间戳
-            nonceStr: res.data.nonceStr, // 必填，生成签名的随机串
-            signature: res.data.signature,// 必填，签名
+            appId: res.appId, // 必填，公众号的唯一标识
+            timestamp: res.timestamp, // 必填，生成签名的时间戳
+            nonceStr: res.nonceStr, // 必填，生成签名的随机串
+            signature: res.signature,// 必填，签名
             jsApiList: [
                 'updateAppMessageShareData',
                 'onMenuShareAppMessage'
             ] // 必填，需要使用的JS接口列表
         });
-        console.log('wx', wx)
 
         wx.error(function (res) {
             console.log('err', res)
