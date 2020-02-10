@@ -62,7 +62,22 @@ class Index extends Component {
   config: Config = {
     navigationBarTitleText: '首页'
   }
+  detailsTimeOut = null;
 
+  constructor (props) {
+    super(props);
+    let num = localStorage.getItem('num');
+    console.log('num', num)
+    let jiayou = null;
+    if (num) {
+      jiayou = num;
+    } else {
+      jiayou = 80000;
+    }
+    this.state = {
+      num: jiayou
+    }
+  }
   componentWillMount() { }
 
   componentWillReact() {
@@ -75,7 +90,6 @@ class Index extends Component {
     logEnter();
     var p = document.getElementById('myframe');
     var onmessage = function(e){
-      console.log(e)
       var data = e.data;
       //提取参数
       p.height = data || '1500px';
@@ -86,14 +100,34 @@ class Index extends Component {
     } else if (typeof window.attachEvent != 'undefined') {
       window.attachEvent('onmessage', onmessage);
     }
+    this.changeNum();
   }
 
-  componentWillUnmount() { }
-
+  componentWillUnmount() {
+    clearInterval(this.detailsTimeOut);
+  }
+  comp
   componentDidShow() { }
 
   componentDidHide() { }
-
+  getRandom(min, max){
+    let r = Math.random() * (max - min);
+    let re = Math.round(r + min);
+    re = Math.max(Math.min(re, max), min)
+    return re;
+  }
+  changeNum () {
+    this.detailsTimeOut = setInterval(() => {
+      const { num } = this.state;
+      let ram = this.getRandom(5, 30);
+      let jiayounum = Number(num) + Number(ram);
+      this.setState({
+        num: jiayounum
+      },()=>{
+        localStorage.setItem('num', jiayounum);
+      })
+    }, 3000)
+  }
   handleClickAction = () => {
     this.props.indexStore.closeAction();
     Taro.atMessage({
@@ -183,8 +217,8 @@ class Index extends Component {
       banners, polularScience,
       sticky, countTotal,
       openShare, setOpenShare
-    } } = this.props
-    console.log('tabList', tabList);
+    } } = this.props;
+    const { num } = this.state;
     return (
       <View style={{ width: "100%", overflowX: "hidden" }}>
         <AtMessage />
@@ -372,7 +406,7 @@ class Index extends Component {
           {isWeixin() ? <View className="at-col at-col-2" /> :
             <AtButton type='secondary' circle className="at-col at-col-3 button_share" onClick={this.onClickShare}>分享</AtButton>
           }
-          <View className="at-col at-col-8 btn-primary">
+          <View className="at-col at-col-8 btn-primary btn-jiayou">
             <AtButton className="button_jiayou" type='primary' circle onClick={() => {
               logQifu();
               openAction();
@@ -380,8 +414,9 @@ class Index extends Component {
             {/* <AtButton type='primary' circle circle onClick={() => {
               logQifu();
               openAction();}}>我要为中国战疫加油</AtButton> */}
-            {/* <text className="btn-hint">930,010,010人参与了祈福</text> */}
+            <View className="btn-hint">{num}人参与了祈福</View>
           </View>
+
         </View>
         <AtActionSheet isOpened={isActionOpen} cancelText='取消' title='点击发送吉祥语' onClose={closeAction}>
           {actionList.map((i, index) =>
